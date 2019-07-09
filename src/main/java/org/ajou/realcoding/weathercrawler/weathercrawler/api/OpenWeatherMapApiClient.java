@@ -1,5 +1,6 @@
 package org.ajou.realcoding.weathercrawler.weathercrawler.api;
 
+import org.ajou.realcoding.weathercrawler.weathercrawler.domain.CurrentWeather;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
@@ -14,9 +15,9 @@ public class OpenWeatherMapApiClient {
     @Autowired
     RestTemplate restTemplate;
 
-    public String requestCurrentWeather(String cityName){
+    public CurrentWeather requestCurrentWeather(String cityName){
         // Params : Url, Method, Header, return type, {} params
-        return restTemplate.exchange(openWeatherUrl, HttpMethod.GET, null, String.class, cityName, appid)
+        return restTemplate.exchange(openWeatherUrl, HttpMethod.GET, null, CurrentWeather.class, cityName, appid)
                 .getBody();
     }
 

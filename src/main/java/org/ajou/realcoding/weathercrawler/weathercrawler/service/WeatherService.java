@@ -3,6 +3,7 @@ package org.ajou.realcoding.weathercrawler.weathercrawler.service;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.ajou.realcoding.weathercrawler.weathercrawler.api.OpenWeatherMapApiClient;
+import org.ajou.realcoding.weathercrawler.weathercrawler.domain.CurrentWeather;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,7 +32,7 @@ public class WeatherService {
         return cities;
     }
 
-    public String getCurrentWeatherByCityName(String cityName){
+    public CurrentWeather getCurrentWeatherByCityName(String cityName){
         return openWeatherMapApiClient.requestCurrentWeather(cityName);
     }
 }

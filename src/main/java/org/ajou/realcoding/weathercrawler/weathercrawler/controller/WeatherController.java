@@ -1,5 +1,6 @@
 package org.ajou.realcoding.weathercrawler.weathercrawler.controller;
 
+import org.ajou.realcoding.weathercrawler.weathercrawler.domain.CurrentWeather;
 import org.ajou.realcoding.weathercrawler.weathercrawler.service.WeatherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,7 +22,7 @@ public class WeatherController {
     }
 
     @GetMapping("/weather-crawler/current-weathers/by-city-name/{cityName}")
-    public String getCurrentWeather(@PathVariable String cityName){
+    public CurrentWeather getCurrentWeather(@PathVariable String cityName){
         return weatherService.getCurrentWeatherByCityName(cityName);
     }
 }
